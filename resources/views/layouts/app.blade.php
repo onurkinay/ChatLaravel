@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="{{ asset('assets/style.css') }}">
     @vite(['resources/css/app.css'])
     @vite(['resources/js/app.js'])
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/grid.js"></script>
+
 
 
 </head>
