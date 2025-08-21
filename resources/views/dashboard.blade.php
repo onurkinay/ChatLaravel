@@ -1,6 +1,7 @@
     <x-app-layout>
 
         <div id="frame">
+
             @include('layouts.sidebar')
             <div class="content">
                 <div class="contact-profile">
@@ -59,4 +60,8 @@
             </div>
         </div>
 
+
+        <x-slot name="scripts">
+            @vite(['resources/js/app.js'])
+        </x-slot>
     </x-app-layout>

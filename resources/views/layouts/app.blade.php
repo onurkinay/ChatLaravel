@@ -9,6 +9,10 @@
         href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'>
 
     <link rel="stylesheet" href="{{ asset('assets/style.css') }}">
+    @vite(['resources/css/app.css'])
+    @vite(['resources/js/app.js'])
+
+
 </head>
 
 <body>
@@ -17,6 +21,9 @@
 
     <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
         integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+
+
+    {{ $scripts ?? '' }}
 </body>
 
 </html>
