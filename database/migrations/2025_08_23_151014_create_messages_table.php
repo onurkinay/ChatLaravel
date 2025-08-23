@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
             $table->foreignId('form_id');
+            $table->foreignId('to_id');
             $table->text('message');
             $table->timestamps();
         });

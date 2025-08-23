@@ -26,11 +26,14 @@
                     </ul>
                 </div>
                 <div class="message-input">
-
-                    <div class="wrap">
-                        <input type="text" placeholder="Write your message..." />
-                        <button class="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-                    </div>
+                    <form action="#" method="POST" class="message-form">
+                        @csrf
+                        <div class="wrap">
+                            <input type="text" placeholder="Write your message..." name="message" />
+                            <button type="submit" class="submit"><i class="fa fa-paper-plane"
+                                    aria-hidden="true"></i></button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
