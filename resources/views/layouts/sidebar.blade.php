@@ -1,7 +1,7 @@
 <div id="sidepanel">
     <div id="profile">
         <div class="wrap">
-            <img id="profile-img" src="http://emilcarlsson.se/assets/mikeross.png" class="online" alt="" />
+            <img id="profile-img" src="{{ asset('anon.png') }}" class="online" alt="" />
             <p>{{ auth()->user()->name }}</p>
             <i class="fa fa-chevron-down expand-button" aria-hidden="true"></i>
             <div id="status-options">
@@ -30,7 +30,7 @@
                 <li class="contact" data-id="{{ $user->id }}">
                     <div class="wrap">
                         <span class="contact-status online"></span>
-                        <img src="http://emilcarlsson.se/assets/louislitt.png" alt="" />
+                        <img src="{{ asset('anon.png') }}" alt="" />
                         <div class="meta">
                             <p class="name">{{ $user->name }}</p>
                             <p class="preview">{{ $user->email }}</p>
