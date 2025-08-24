@@ -38,5 +38,6 @@ class ChatController extends Controller
         $message->save();
 
         return response()->json($message);
+
     }
 }

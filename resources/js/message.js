@@ -2,9 +2,20 @@ const selectedUser = document.querySelector(
     'meta[name="selected_user"]'
 ).content;
 const baseUrl = document.querySelector('meta[name="baseUrl"]').content;
-
+const inbox = $(".messages ul");
 function toggleLoader() {
     $(".loader").toggle();
+}
+
+function messageTemplate(text, className) {
+    return `
+         <li class="${className}">
+     <img src="/anon.png" alt="" />
+     <p>${text}
+     </p>
+ </li>
+
+    `;
 }
 
 function fetchMessages() {
@@ -38,11 +49,15 @@ function sendMessage() {
         'meta[name="selected_user"]'
     ).content;
     let formData = $(".message-form").serialize();
+    let messageBox = $(".message-box");
     $.ajax({
         url: baseUrl + "/send-message",
         method: "POST",
         data: formData + "&contact_id=" + selectedUser,
-        beforeSend: function () {},
+        beforeSend: function () {
+            let message = messageBox.val();
+            inbox.append(messageTemplate(message, "replies"));
+        },
         success: function (data) {
             $(".message-input input").val("");
         },
@@ -56,10 +71,10 @@ function setContactInfo(user) {
 }
 
 $(document).ready(function () {
-    toggleLoader();
     $(".contact").on("click", function () {
         const userId = $(this).data("id");
         $('meta[name="selected_user"]').attr("content", userId);
+        toggleLoader();
         fetchMessages();
     });
 
