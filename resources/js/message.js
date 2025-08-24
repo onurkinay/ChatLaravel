@@ -69,12 +69,15 @@ function sendMessage() {
         beforeSend: function () {
             let message = messageBox.val();
             inbox.append(messageTemplate(message, "replies"));
+            messageBox.val("");
         },
         success: function (data) {
             $(".message-input input").val("");
         },
         error: function (xhr, status, error) {},
-        complete: function () {},
+        complete: function () {
+            scrollToBottom();
+        },
     });
 }
 
@@ -104,7 +107,8 @@ $(document).ready(function () {
 
 //listen to the live events
 window.Echo.private(`message.${authId}`).listen("SendMessageEvent", (e) => {
-    if (e.from_id === selectedUser) {
+    if (e.from_id == selectedUser) {
         inbox.append(messageTemplate(e.text, "sent"));
+        scrollToBottom();
     }
 });
