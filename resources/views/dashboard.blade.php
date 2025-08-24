@@ -18,10 +18,7 @@
                 </div>
                 <div class="messages">
                     <ul>
-                        <x-message class="sent"
-                            text="How the hell am I supposed to get a jury to believe you when I am not even sure that I do?!" />
-                        <x-message class="replies"
-                            text="When you're backed against the wall, break the god damn thing down." />
+                        {{-- MESSAGES HERE  --}}
 
                     </ul>
                 </div>

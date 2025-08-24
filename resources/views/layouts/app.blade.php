@@ -5,6 +5,7 @@
     <meta charset='UTF-8'>
     <meta name="robots" content="noindex">
     <meta name="selected_user" content="">
+    <meta name="auth_id" content="{{ Auth::user()->id }}">
     <meta name="baseUrl" content="{{ url('/') }}">
 
     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>

@@ -1,6 +1,7 @@
 const selectedUser = document.querySelector(
     'meta[name="selected_user"]'
 ).content;
+const authId = document.querySelector('meta[name="auth_id"]').content;
 const baseUrl = document.querySelector('meta[name="baseUrl"]').content;
 const inbox = $(".messages ul");
 function toggleLoader() {
@@ -92,4 +93,11 @@ $(document).ready(function () {
         e.preventDefault();
         sendMessage();
     });
+});
+
+//listen to the live events
+window.Echo.private(`message.${authId}`).listen("SendMessageEvent", (e) => {
+    inbox.append(
+        messageTemplate(e.text, e.id === selectedUser ? "replies" : "sent")
+    );
 });
