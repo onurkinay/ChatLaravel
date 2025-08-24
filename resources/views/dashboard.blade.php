@@ -4,9 +4,14 @@
 
             @include('layouts.sidebar')
             <div class="content">
-                <div class="loader">
+                <div class="loader" style="display: none;">
                     <div class="loader-inner">
                         <l-grid size="60" speed="1.5" color="#2c3e50"></l-grid>
+                    </div>
+                </div>
+                <div class="chooseOne">
+                    <div class="chooseOne-inner">
+                        <p>Choose a contact to start chatting</p>
                     </div>
                 </div>
                 <div class="contact-profile">

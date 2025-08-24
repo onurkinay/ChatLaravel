@@ -16,3 +16,23 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+.chooseOne {
+    width: 100%;
+    height: 100%;
+    background-color: #2ecc71;
+    position: relative;
+    z-index: 1000;
+}
+
+.chooseOne-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.chooseOne-inner p {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}

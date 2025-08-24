@@ -45,6 +45,7 @@ function fetchMessages() {
                     )
                 );
             });
+            scrollToBottom();
         },
         error: function (xhr, status, error) {
             // Handle error
@@ -81,11 +82,17 @@ function setContactInfo(user) {
     $(".contact-name").text(user.name);
 }
 
+function scrollToBottom() {
+    $(".messages")
+        .stop()
+        .animate({ scrollTop: $(".messages")[0].scrollHeight });
+}
+
 $(document).ready(function () {
     $(".contact").on("click", function () {
         const userId = $(this).data("id");
         $('meta[name="selected_user"]').attr("content", userId);
-        toggleLoader();
+        $(".chooseOne").hide();
         fetchMessages();
     });
 
