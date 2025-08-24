@@ -34,6 +34,16 @@ function fetchMessages() {
         },
         success: function (data) {
             setContactInfo(data.contact);
+            //append messages
+            inbox.html("");
+            data.messages.forEach((message) => {
+                inbox.append(
+                    messageTemplate(
+                        message.message,
+                        message.to_id == selectedUser ? "replies" : "sent"
+                    )
+                );
+            });
         },
         error: function (xhr, status, error) {
             // Handle error
