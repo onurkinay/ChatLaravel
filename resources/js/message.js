@@ -97,7 +97,7 @@ $(document).ready(function () {
 
 //listen to the live events
 window.Echo.private(`message.${authId}`).listen("SendMessageEvent", (e) => {
-    inbox.append(
-        messageTemplate(e.text, e.id === selectedUser ? "replies" : "sent")
-    );
+    if (e.from_id === selectedUser) {
+        inbox.append(messageTemplate(e.text, "sent"));
+    }
 });

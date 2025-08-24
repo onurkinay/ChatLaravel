@@ -15,7 +15,7 @@ class SendMessageEvent implements ShouldBroadcast
     /**
      * Create a new event instance.
      */
-    public function __construct(public string $text, public int $id)
+    public function __construct(public string $text, public int $from_id, public int $to_id)
     {
         //
     }
@@ -28,7 +28,7 @@ class SendMessageEvent implements ShouldBroadcast
     public function broadcastOn(): array
     {
         return [
-            new PrivateChannel('message.'.$this->id),
+            new PrivateChannel('message.'.$this->to_id),
         ];
     }
 }
